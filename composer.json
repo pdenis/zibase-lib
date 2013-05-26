@@ -1,0 +1,25 @@
+{
+    "name":         "snide/zibase-lib",
+    "type":         "library",
+    "description":  "Zibase sdk library",
+    "keywords":     ["zibase", "sdk"],
+    "homepage":     "http://github.com/pdenis/zibase-lib",
+    "license":      "MIT",
+    "authors":      [
+        {
+            "name":     "Pascal Denis",
+            "email":    "pascal.denis.75@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload":     {
+        "psr-0": {
+            "Snide\\Zibase": "src"
+        }
+    }
+}
