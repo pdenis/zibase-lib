@@ -11,27 +11,27 @@ use Snide\Zibase\Command as AbstractCommand;
  */
 class ScriptCommand extends AbstractCommand
 {
-	protected $acceptedParameters = array(
-		'message'
-	);
+    protected $acceptedParameters = array(
+        'message'
+    );
 
-	public function __construct(array $parameters = array())
-	{
-		$this->parameters['command'] = 16;
+    public function __construct(array $parameters = array())
+    {
+        $this->parameters['command'] = 16;
 
-		parent::__construct($parameters);
-	}
+        parent::__construct($parameters);
+    }
 
-	public function validate()
-	{
-		$this->validateAcceptedParameters();
-		if(!isset($this->parameters['message']) || empty($this->parameters['message'])) {
-			throw new \Exception('message parameter is required');
-		}
-	}
+    public function validate()
+    {
+        $this->validateAcceptedParameters();
+        if(!isset($this->parameters['message']) || empty($this->parameters['message'])) {
+            throw new \Exception('message parameter is required');
+        }
+    }
 
-	public function create()
-	{
-		return $this->parameters;
-	}
+    public function create()
+    {
+        return $this->parameters;
+    }
 }

@@ -9,5 +9,5 @@ namespace Snide\Zibase\Manager;
  */
 class CommandManager implements CommandManagerInterface
 {
-	
+    
 }

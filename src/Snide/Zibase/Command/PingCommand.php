@@ -11,25 +11,25 @@ use Snide\Zibase\Command as AbstractCommand;
  */
 class PingCommand extends AbstractCommand
 {
-	
-	protected $acceptedParameters = array(
-		'command'
-	);
+    
+    protected $acceptedParameters = array(
+        'command'
+    );
 
-	public function __construct(array $parameters = array())
-	{
-		$this->parameters['command'] = 8;
+    public function __construct(array $parameters = array())
+    {
+        $this->parameters['command'] = 8;
 
-		parent::__construct($parameters);
-	}
-	
-	public function validate()
-	{
-		$this->validateAcceptedParameters();
-	}
+        parent::__construct($parameters);
+    }
+    
+    public function validate()
+    {
+        $this->validateAcceptedParameters();
+    }
 
-	public function create()
-	{
-		return $this->parameters();
-	}
+    public function create()
+    {
+        return $this->parameters();
+    }
 }

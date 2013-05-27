@@ -11,12 +11,12 @@ use Snide\Zibase\Client as BaseClient;
  */
 class Response extends BaseClient
 {
-	public function __construct($buffer)
-	{
-		$data = unpack(
-			"c4header/ncommand/c16reserved1/c16zibaseId/c12reserved2/Nparam1/Nparam2/Nparam3/Nparam4/nmyCount/nyourCount/c*message", 
-			$buffer
-		);
+    public function __construct($buffer)
+    {
+        $data = unpack(
+            "c4header/ncommand/c16reserved1/c16zibaseId/c12reserved2/Nparam1/Nparam2/Nparam3/Nparam4/nmyCount/nyourCount/c*message", 
+            $buffer
+        );
         
         $this->header    = substr($buffer, 0, 4);
         $this->reserved1 = substr($buffer, 6, 16);
@@ -31,5 +31,5 @@ class Response extends BaseClient
         $this->param4    = $data["param4"];
         $this->myCount   = $data["myCount"];
         $this->yourCount = $data["yourCount"];      
-	}
+    }
 }

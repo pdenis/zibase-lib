@@ -11,17 +11,17 @@ use Snide\Zibase\Client\Request;
  */
 class RequestManager implements RequestManagerInterface
 {
-	protected $class;
+    protected $class;
 
-	public function __construct($class)
-	{
-		$this->class = $class;
-	}
+    public function __construct($class)
+    {
+        $this->class = $class;
+    }
 
-	public function createNew()
-	{
-		$class = $this->class;
-		
-		return new $class();
-	}
+    public function createNew()
+    {
+        $class = $this->class;
+        
+        return new $class();
+    }
 }

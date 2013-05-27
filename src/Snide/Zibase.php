@@ -13,49 +13,49 @@ use Snide\Zibase\Client\Response;
  */
 class Zibase
 {
-	protected $host;
-	protected $port;
-	protected $request;
-	protected $response;
+    protected $host;
+    protected $port;
+    protected $request;
+    protected $response;
 
-	public function __construct($host, $port = 49999)
-	{
-		$this->host = $host;
-		$this->port = $port;
-	}
+    public function __construct($host, $port = 49999)
+    {
+        $this->host = $host;
+        $this->port = $port;
+    }
 
-	public function send(Request $request)
-	{
+    public function send(Request $request)
+    {
 
-	}
+    }
 
-	public function execute(Command $command)
-	{
-		$command->validate();
-		$this->request = new Request($command->create());
+    public function execute(Command $command)
+    {
+        $command->validate();
+        $this->request = new Request($command->create());
 
-		$this->response = new Response($request->send($this->ip, $this->port));
+        $this->response = new Response($request->send($this->ip, $this->port));
 
-		return $this->response;
-	}
+        return $this->response;
+    }
 
-	public function getHost()
-	{
-		return $this->host;
-	}
+    public function getHost()
+    {
+        return $this->host;
+    }
 
-	public function setHost($host)
-	{
-		$this->host = $host;
-	}
+    public function setHost($host)
+    {
+        $this->host = $host;
+    }
 
-	public function getPort()
-	{
-		return $this->port;
-	}
+    public function getPort()
+    {
+        return $this->port;
+    }
 
-	public function setPort($port)
-	{
-		$this->port = $port;
-	}
+    public function setPort($port)
+    {
+        $this->port = $port;
+    }
 }

@@ -9,5 +9,5 @@ namespace Snide\Zibase\Manager;
  */
 interface RequestManagerInterface
 {
-	public function createNew();
+    public function createNew();
 }

@@ -9,17 +9,17 @@ namespace Snide\Zibase\Manager;
  */
 class ResponseManager implements ResponseManagerInterface
 {
-	protected $class;
+    protected $class;
 
-	public function __construct($class)
-	{
-		$this->class = $class;
-	}
+    public function __construct($class)
+    {
+        $this->class = $class;
+    }
 
-	public function createNew()
-	{
-		$class = $this->class;
-		
-		return new $class();
-	}
+    public function createNew()
+    {
+        $class = $this->class;
+        
+        return new $class();
+    }
 }

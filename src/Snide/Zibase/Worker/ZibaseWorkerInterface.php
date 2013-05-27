@@ -9,6 +9,6 @@ namespace Snide\Zibase\Worker;
  */
 interface ZibaseWorkerInterface
 {
-	public function executeScript($script);
-	public function executeScenario($scenario);
+    public function executeScript($script);
+    public function executeScenario($scenario);
 }

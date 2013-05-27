@@ -9,5 +9,5 @@ namespace Snide\Zibase\Worker;
  */
 class ZibaseWorker implements ZibaseWorkerInterface
 {
-	
+    
 }

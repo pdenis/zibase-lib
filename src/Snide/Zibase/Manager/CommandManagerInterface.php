@@ -9,5 +9,5 @@ use Snide\Zibase\Manager;
  */
 interface CommandManagerInterface
 {
-	
+    
 }
