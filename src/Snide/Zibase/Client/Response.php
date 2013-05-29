@@ -11,6 +11,13 @@ use Snide\Zibase\Client as BaseClient;
  */
 class Response extends BaseClient
 {
+    /**
+     * Constructor
+     * 
+     * Inject binary datas into response object
+     * 
+     * @param binary $buffer
+     */
     public function __construct($buffer)
     {
         $data = unpack(

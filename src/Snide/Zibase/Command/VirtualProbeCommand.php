@@ -15,13 +15,22 @@ class VirtualProbeCommand extends AbstractCommand
     const TYPE_OREGON = 17;
     const TYPE_OWL = 20;
 
+    /**
+     * {@inheritdoc}    
+     */
     protected $acceptedParameters = array(
-        'type', // sensor type
-        'id', // sensor ID
-        'value_1', // First analog value
-        'value_2', // second analog value
-        'low_battery'
+        'type',       // sensor type
+        'id',         // sensor ID
+        'value_1',    // First analog value
+        'value_2',    // second analog value
+        'low_battery' // Battery level
     );
+    
+    /**
+     * Constructor
+     * 
+     * @param array $parameters Command parameters
+     */
     public function __construct(array $parameters = array())
     {
         $this->parameters['command'] = 11;
@@ -31,11 +40,17 @@ class VirtualProbeCommand extends AbstractCommand
         parent::__construct($parameters);
     }
 
+    /**
+     * {@inheritdoc}    
+     */
     public function validate()
     {
         $this->validateAcceptedParameters();
     }
 
+    /**
+     * {@inheritdoc}    
+     */
     public function create()
     {
         $param3  = $this->parameters['value_1'];

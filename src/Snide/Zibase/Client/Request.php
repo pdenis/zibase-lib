@@ -11,12 +11,24 @@ use Snide\Zibase\Client as BaseClient;
  */
 class Request extends BaseClient
 {
+    /**
+     * Constructor
+     * 
+     * @param array $parameters Parameters will be inject into this request object
+     */
     public function __construct(array $parameters = array())
     {
         $this->load($parameters);
     }
 
-    public function send($ip, $port)
+    /**
+     * Send the request
+     * 
+     * @param string $host Zibase Host 
+     * @param string $port Zibase Port
+     * @return \Snide\Zibase\Client\Response Zibase response
+     */
+    public function send($host, $port)
     {
         $buffer = $this->toBinary();
         $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
@@ -32,6 +44,12 @@ class Request extends BaseClient
         return $response;
     }
 
+    /**
+     * Inject parameters into this request object
+     * Use request setter to do the stuff
+     * 
+     * @param array $parameters
+     */
     protected function load(array $parameters = array())
     {
         if(is_array($parameters)) {
@@ -44,6 +62,11 @@ class Request extends BaseClient
         }
     }
 
+    /**
+     * Transform request parameters into binary data
+     * 
+     * @return binary Binary datas
+     */
     protected function toBinary()
     {
         $bin = $this->header;

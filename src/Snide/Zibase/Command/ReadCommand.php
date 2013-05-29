@@ -14,11 +14,19 @@ class ReadCommand extends WriteCommand
     const ACTION_READ_CAL = 2;
     const ACTION_READ_PSEUDO = 4;
     
+    /**
+     * {@inheritdoc}    
+     */
     protected $acceptedParameters = array(
         'action', // action to execute
         'number' // variable number to read
     );
 
+    /**
+     * Constructor
+     * 
+     * @param array $parameters Command parameters
+     */
     public function __construct(array $parameters = array())
     {
         $this->parameters['command'] = 11;
@@ -27,11 +35,17 @@ class ReadCommand extends WriteCommand
         parent::__construct($parameters);
     }
 
+    /**
+     * {@inheritdoc}    
+     */
     public function validate()
     {
         $this->validateAcceptedParameters();
     }
 
+    /**
+     * {@inheritdoc}    
+     */
     public function create()
     {
         return array(

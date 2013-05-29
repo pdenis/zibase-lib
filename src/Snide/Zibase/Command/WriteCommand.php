@@ -15,11 +15,20 @@ class WriteCommand extends AbstractCommand
     const ACTION_WRITE_VAR = 1;
     const ACTION_WRITE_CAL = 3;
 
+    /**
+     * {@inheritdoc}    
+     */
     protected $acceptedParameters = array(
         'action', // action to execute
-        'value', // value to write
-        'number' // variable number
+        'value',  // value to write
+        'number'  // variable number
     );
+    
+    /**
+     * Constructor
+     * 
+     * @param array $parameters Command parameters
+     */
     public function __construct(array $parameters = array())
     {
         $this->parameters['command'] = 11;
@@ -28,11 +37,17 @@ class WriteCommand extends AbstractCommand
         parent::__construct($parameters);
     }
 
+    /**
+     * {@inheritdoc}    
+     */
     public function validate()
     {
         $this->validateAcceptedParameters();
     }
 
+    /**
+     * {@inheritdoc}    
+     */
     public function create()
     {
         return array(

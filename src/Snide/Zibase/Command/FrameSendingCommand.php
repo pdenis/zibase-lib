@@ -38,6 +38,9 @@ class FrameSendingCommand extends AbstractCommand
     const PROTOCOL_XDD868_BOILER_AC = 12;
     const PROTOCOL_ZWAVE = 6;
 
+    /**
+     * {@inheritdoc}    
+     */
     protected $acceptedParameters = array(
         'action',
         'protocol',
@@ -47,6 +50,11 @@ class FrameSendingCommand extends AbstractCommand
         'house_code'
     );
 
+    /**
+     * Constructor
+     * 
+     * @param array $parameters Command parameters
+     */
     public function __construct(array $parameters = array())
     {
         $this->parameters['command'] = 11;
@@ -55,6 +63,9 @@ class FrameSendingCommand extends AbstractCommand
         parent::__construct($parameters);
     }
     
+    /**
+     * {@inheritdoc}    
+     */
     public function validate()
     {
         $this->validateAcceptedParameters();
@@ -71,6 +82,9 @@ association mode targeted to the specified ‘protocol” when <>0
          */
     }
 
+    /**
+     * {@inheritdoc}    
+     */
     public function create()
     {
         return array(

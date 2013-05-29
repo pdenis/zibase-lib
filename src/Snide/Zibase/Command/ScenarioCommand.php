@@ -12,10 +12,18 @@ use Snide\Zibase\Command as AbstractCommand;
  */
 class ScenarioCommand extends AbstractCommand
 {
+    /**
+     * {@inheritdoc}    
+     */
     protected $acceptedParameters = array(
         'number'
     );
 
+    /**
+     * Constructor
+     * 
+     * @param array $parameters Command parameters
+     */
     public function __construct(array $parameters = array())
     {
         $this->parameters['command'] = 11;
@@ -24,6 +32,9 @@ class ScenarioCommand extends AbstractCommand
         parent::__construct($parameters);
     }
 
+    /**
+     * {@inheritdoc}    
+     */
     public function validate()
     {
         $this->validateAcceptedParameters();
@@ -32,6 +43,9 @@ class ScenarioCommand extends AbstractCommand
         }
     }
 
+    /**
+     * {@inheritdoc}    
+     */
     public function create()
     {
         return array(

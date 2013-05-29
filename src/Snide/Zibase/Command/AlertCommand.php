@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 namespace Snide\Zibase\Command;
 
@@ -23,12 +23,20 @@ class AlertCommand extends AbstractCommand
     const EVT_AXX_PXX_ZW_ON = 19;
     const EVT_AXX_PXX_ZW_OFF = 20;
 
+    /**
+     * {@inheritdoc}    
+     */
     protected $acceptedParameters = array(
         'action',
         'event',
         'id'
     );
 
+    /**
+     * Constructor
+     * 
+     * @param array $parameters Command parameters
+     */
     public function __construct(array $parameters = array())
     {
         $this->parameters['command'] = 11;
@@ -37,6 +45,9 @@ class AlertCommand extends AbstractCommand
         parent::__construct($parameters);
     }
     
+    /**
+     * {@inheritdoc}    
+     */
     public function validate()
     {
         $this->validateAcceptedParameters();
@@ -47,6 +58,9 @@ class AlertCommand extends AbstractCommand
          */    
     }
 
+    /**
+     * {@inheritdoc}    
+     */
     public function create()
     {
         return array(
