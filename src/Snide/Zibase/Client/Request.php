@@ -90,6 +90,4 @@ class Request extends BaseClient
                 
         return $bin;    
     }
-
-
 }

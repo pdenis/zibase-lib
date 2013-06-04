@@ -37,6 +37,8 @@ class Response extends BaseClient
         $this->param3    = $data["param3"];
         $this->param4    = $data["param4"];
         $this->myCount   = $data["myCount"];
-        $this->yourCount = $data["yourCount"];      
+        $this->yourCount = $data["yourCount"];     
+
+        var_dump($this); 
     }
 }

@@ -70,6 +70,19 @@ abstract class Command
     }
 
     /**
+     * Getter parameters
+     * 
+     * @return array Command parameters
+     */
+    public function getParameter($key)
+    {
+        if(isset($this->parameters[$key])) {
+            return $this->parameters[$key];
+        }
+        return false;
+    }
+
+    /**
      * Setter parameters
      * 
      * @param array $parameters Command parameters
