@@ -16,7 +16,9 @@ class ScenarioCommand extends AbstractCommand
      * {@inheritdoc}    
      */
     protected $acceptedParameters = array(
-        'number'
+        'number',
+        'command',
+        'param1'
     );
 
     /**

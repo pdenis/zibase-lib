@@ -23,7 +23,9 @@ class VirtualProbeCommand extends AbstractCommand
         'id',         // sensor ID
         'value_1',    // First analog value
         'value_2',    // second analog value
-        'low_battery' // Battery level
+        'low_battery', // Battery level
+        'command',
+        'param1' 
     );
     
     /**

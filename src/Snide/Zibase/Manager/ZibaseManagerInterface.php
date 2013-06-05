@@ -23,7 +23,7 @@ interface ZibaseManagerInterface
     
     public function sendVirtualProbe($type, $sensorId, $firstAnalogValue, $secondAnalogValue, $lowBattery = 0);
             
-    public function writeCalendar($value);
+    public function writeCalendar($variable, $value);
     
     public function writeVariable($variable, $value);
 }

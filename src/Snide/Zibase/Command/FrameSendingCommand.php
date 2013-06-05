@@ -47,7 +47,9 @@ class FrameSendingCommand extends AbstractCommand
         'dim_bright', // between 0 and 100
         'nb_burst',
         'device_number',
-        'house_code'
+        'house_code',
+        'command',
+        'param1'
     );
 
     /**

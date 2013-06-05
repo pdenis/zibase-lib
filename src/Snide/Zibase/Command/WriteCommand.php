@@ -21,7 +21,9 @@ class WriteCommand extends AbstractCommand
     protected $acceptedParameters = array(
         'action', // action to execute
         'value',  // value to write
-        'number'  // variable number
+        'number',  // variable number
+        'command',
+        'param1'
     );
     
     /**
@@ -43,6 +45,9 @@ class WriteCommand extends AbstractCommand
     public function validate()
     {
         $this->validateAcceptedParameters();
+        if($this->parameters['number'] < 0 || $this->parameters['number'] > 14) {
+            throw new \Snide\Zibase\Command\Exception\ParameterException('variable number must be between 0 and 14');
+        }
     }
 
     /**

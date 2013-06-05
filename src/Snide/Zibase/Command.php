@@ -112,11 +112,17 @@ abstract class Command
      */
     protected function validateAcceptedParameters()
     {
-        if(!in_array(array_keys($this->getParameters()), $this->acceptedParameters)) {
-            throw new \Exception(
-                sprintf('Some parameters are not valid %s', print_r($this->parameters, true))
-            );
+        if(is_array($this->getParameters())) {
+            $keys = array_keys($this->getParameters());
+            foreach($keys as $key) {
+                if(!in_array($key, $this->acceptedParameters)) {
+                    throw new \Snide\Zibase\Command\Exception\ParameterException(
+                        sprintf('Some parameters are not valid %s', print_r($this->parameters, true))
+                    );
+                }
+            }
         }
+        
 
         return true;
     }

@@ -43,6 +43,6 @@ class PingCommand extends AbstractCommand
      */
     public function create()
     {
-        return $this->parameters();
+        return $this->parameters;
     }
 }

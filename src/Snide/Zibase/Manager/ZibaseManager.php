@@ -14,15 +14,22 @@ class ZibaseManager implements ZibaseManagerInterface
     protected $zibase;
     protected $commandFactory;
     protected $response;
+    protected $exception;
     
     public function __construct(Zibase $zibase, CommandFactoryInterface $commandFactory)
     {
         $this->zibase = $zibase;
+        $this->commandFactory = $commandFactory;
     }    
     
     public function ping()
     {
-        return $this->sendCommand('ping');
+        try {
+            return ($this->sendCommand('ping') != null);
+        }catch(\Exception $e) {
+            $this->exception = $e;
+        }
+        return false;        
     }
     
     public function runScenario($scenario)
@@ -62,7 +69,7 @@ class ZibaseManager implements ZibaseManagerInterface
         return $this->sendCommand('read', array(
             'action' => \Snide\Zibase\Command\ReadCommand::ACTION_READ_VAR,
             'number' => $variable,
-        ));
+        ))->getParam1();
     }
     
     public function readCalendar($variable)
@@ -110,8 +117,14 @@ class ZibaseManager implements ZibaseManagerInterface
         if(!$command) {
             throw new \Exception(sprintf('Command %s not found', $commandName));
         }
+
         $this->response = $this->zibase->execute($command);
-        
+
         return $this->response;
+    }
+
+    public function getException()
+    {
+        return $this->exception;
     }
 }

@@ -21,77 +21,77 @@ abstract class Client
      * 
      * @var int
      */
-    protected $command;
+    protected $command = 0;
     
     /**
      * Reserved attribute
      * 
      * @var string
      */
-    protected $reserved1;
+    protected $reserved1 = null;
     
     /**
      * Second reserved attribute
      * 
      * @var string
      */
-    protected $reserved2;
+    protected $reserved2 = null;
     
     /**
      * Zibase ID
      * 
      * @var string
      */
-    protected $zibaseId;
+    protected $zibaseId = null;
     
     /**
      * Generic parameters for commands
      * 
      * @var mixed
      */
-    protected $param1;    
+    protected $param1 = 0;    
     
     /**
      * Generic parameters for commands
      * 
      * @var mixed
      */
-    protected $param2;
+    protected $param2 = 0;
     
     /**
      * Generic parameters for commands
      * 
      * @var mixed
      */
-    protected $param3;   
+    protected $param3 = 0;   
     
     /**
      * Generic parameters for commands
      * 
      * @var mixed
      */
-    protected $param4;
+    protected $param4 = 0;
     
     /**
      * Incr.counter at each sent packet (not incr. in burst of same packets)
      * 
      * @var int 
      */
-    protected $myCount;   
+    protected $myCount = 0;   
     
     /**
      * Last counter value received by the other side
      * 
      * @var int 
      */
-    protected $yourCount;
+    protected $yourCount = 0;
     
     /**
      * Specific Message (use for script command)
      * 
      * @var string 
      */
-    protected $message;
+    protected $message = null;
 
     /**
      * Getter command

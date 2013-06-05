@@ -1,6 +1,6 @@
 <?php
 
-namespace Snide\Zibase;
+namespace Snide;
 
 use Snide\Zibase\Client\Request;
 use Snide\Zibase\Command;
@@ -41,17 +41,24 @@ class Zibase
      */
     protected $response;
 
-    
+    /**
+     * Timeout des socket
+     * 
+     * @var int
+     */
+    protected $timeout;
+
     /**
      * Constructor
      * 
      * @param string $host Zibase host
      * @param string $port Zibase port
      */
-    public function __construct($host, $port = 49999)
+    public function __construct($host, $port = 49999, $timeout = 10)
     {
         $this->host = $host;
         $this->port = $port;
+        $this->timeout = $timeout;
     }
     
     /**
@@ -70,7 +77,8 @@ class Zibase
         $this->response = new Response(
             $this->request->send(
                 $this->host, 
-                $this->port
+                $this->port,
+                $this->timeout
             )
         );
 

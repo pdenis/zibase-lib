@@ -15,7 +15,8 @@ class ScriptCommand extends AbstractCommand
      * {@inheritdoc}    
      */
     protected $acceptedParameters = array(
-        'message'
+        'message',
+        'command',
     );
 
     /**

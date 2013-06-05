@@ -51,9 +51,9 @@ class CommandFactory implements CommandFactoryInterface
         foreach($this->getNamespaces() as $ns) {
             if(class_exists($class = $ns.'\\'.$commandClass)) {
                 $command = new $class($parameters);
-                if($command instanceof Snide\Zibase\Command) {
+//                if($command instanceof Snide\Zibase\Command) {
                     return $command;
-                }
+//                }
             }
         }
         

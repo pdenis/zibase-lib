@@ -24,23 +24,29 @@ class Request extends BaseClient
     /**
      * Send the request
      * 
-     * @param string $host Zibase Host 
+     * @param string $ip Zibase Host 
      * @param string $port Zibase Port
      * @return \Snide\Zibase\Client\Response Zibase response
      */
-    public function send($host, $port)
+    public function send($ip, $port, $timeout)
     {
         $buffer = $this->toBinary();
         $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
         $ack = "";
         $response = null;
+        $sockets = array($socket);
+        $except = null;
+        $wr = null;
+        socket_set_option($socket,SOL_SOCKET, SO_RCVTIMEO, array("sec" => $timeout, "usec" => 0));
         socket_sendto($socket, $buffer, strlen($buffer), 0, $ip, $port);
         socket_recvfrom($socket, $ack, 512, 0, $ip, $port);
         if (strlen($ack) > 0) {
             $response = $ack;
         }    
         socket_close($socket);
-        
+        if(!$response) {
+            throw new \Exception(socket_strerror(socket_last_error()));
+        }
         return $response;
     }
 
